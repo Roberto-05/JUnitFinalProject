@@ -15,7 +15,7 @@ public class Fraction {
 	
 	public Fraction add(Fraction fraction) {
 		if(fraction == null) {
-			throw new IllegalArgumentException("Cannot perfomr math operations on a null fraction object!"); // NOTE for IllegalArgumentJupiter.java
+			throw new IllegalArgumentException("Cannot perform math operations on a null fraction object!"); // NOTE for IllegalArgumentJupiter.java
 		}
 		
 		return null; // CPLT method stub for add
