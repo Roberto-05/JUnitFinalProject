@@ -6,7 +6,7 @@ public class Fraction {
 	
 	public Fraction(int numerator, int denominator) {
 		if(denominator == 0) {
-			throw new IllegalArgumentException("The denominator with the value of 0 is not permitted"); // NOTE for IllegalArgumentJupiter.java
+			throw new IllegalArgumentException("The denominator with the value of 0 is not permitted");
 		}
 		
 		this.numerator = numerator;
@@ -15,10 +15,10 @@ public class Fraction {
 	
 	public Fraction add(Fraction fraction) {
 		if(fraction == null) {
-			throw new IllegalArgumentException("Cannot perform math operations on a null fraction object!"); // NOTE for IllegalArgumentJupiter.java
+			throw new IllegalArgumentException("Cannot perform math operations on a null fraction object!");
 		}
 		
-		return null; // CPLT method stub for add
+		return null; // TODO method stub for add
 	}
 	
 	public int getNum() {
@@ -30,23 +30,23 @@ public class Fraction {
 	}
 	
 	public boolean equals(Fraction fraction) {
-		return false; // CPLT method stub for equals
+		return false; // TODO method stub for equals
 	}
 	
 	public int compareTo(Fraction fraction) {
-		return 0; // CPLT method stub for multiply
+		return 0; // TODO method stub for multiply
 	}
 	
 	public Fraction multiply(Fraction fraction) {
 		if(fraction == null) {
-			throw new IllegalArgumentException("Cannot perform math operations on a null fraction object!"); // NOTE for IllegalArgumentJupiter.java
+			throw new IllegalArgumentException("Cannot perform math operations on a null fraction object!"); // TODO for IllegalArgumentJupiter.java
 		}
 		
-		return null; // CPLT method stub for multiply
+		return null; // TODO method stub for multiply
 	}
 	
 	public double realValue() {
-		return 0.0; // CPLT method stub for realValue
+		return (double) this.numerator / (double) this.denominator;
 	}
 	
 	@Override
