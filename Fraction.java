@@ -63,7 +63,9 @@ public class Fraction {
 		
 		Fraction newFraction = new Fraction(newNum, newDen);
 		
+
 		return simplify(newFraction);
+
 	}
 	
 	public double realValue() {
