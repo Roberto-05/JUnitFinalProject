@@ -17,7 +17,9 @@ public class Fraction {
 		if(fraction == null) {
 			throw new IllegalArgumentException("Cannot perform math operations on a null fraction object!");
 		}
-		
+      //simplify the fractions, compare the denominator, then make sure they can be added
+		int numA = (fraction.getNum() + this.getNum());
+ 
 		return null; // TODO method stub for add
 	}
 	
@@ -30,23 +32,26 @@ public class Fraction {
 	}
 	
 	public boolean equals(Fraction fraction) {
-   if(fraction.getNum() == this.getNum()){
-         if(fraction.getDen() == this.getDen()){
-            return true;
+   
+   //need to simplify the fractions in case it isn't in simplified form
+      if(fraction.getNum() == this.getNum()){
+            if(fraction.getDen() == this.getDen()){
+               return true;
+            }
+            else{
+               return false;
+            }
          }
          else{
             return false;
          }
-      }
-      else{
-         return false;
-      }
 
 		return false; // TODO method stub for equals
 	}
 	
 	public int compareTo(Fraction fraction) {
-		return 0; // TODO method stub for multiply
+      int res = this.fraction.compareTo(fraction);
+		return res; // TODO method stub for multiply
 	}
 	
 	public Fraction multiply(Fraction fraction) {
