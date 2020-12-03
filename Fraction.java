@@ -17,10 +17,10 @@ public class Fraction {
 		if(fraction == null) {
 			throw new IllegalArgumentException("Cannot perform math operations on a null fraction object!");
 		}
-      //simplify the fractions, compare the denominator, then make sure they can be added
-		int numA = (fraction.getNum() + this.getNum());
- 
-		return null; // TODO method stub for add
+		int den = fraction.getDen() * this.getDen();
+		int num = (fraction.getNum() * this.getDen()) + (this.getNum() * fraction.getDen());
+		
+		return simplify(new Fraction(num, den));
 	}
 	
 	public int getNum() {
@@ -32,40 +32,50 @@ public class Fraction {
 	}
 	
 	public boolean equals(Fraction fraction) {
-   
-   //need to simplify the fractions in case it isn't in simplified form
-      if(fraction.getNum() == this.getNum()){
-            if(fraction.getDen() == this.getDen()){
-               return true;
-            }
-            else{
-               return false;
-            }
-         }
-         else{
-            return false;
-         }
+		Fraction thisCopy = simplify(this);
+		fraction = simplify(fraction);
+		
+		if (fraction.getNum() == this.getNum()) {
+			if (fraction.getDen() == this.getDen()) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
 
-		return false; // TODO method stub for equals
+		return false;
 	}
 	
 	public int compareTo(Fraction fraction) {
       int res = this.fraction.compareTo(fraction);
-		return res; // TODO method stub for multiply
+		return res;
 	}
 	
 	public Fraction multiply(Fraction fraction) {
 		if(fraction == null) {
-			throw new IllegalArgumentException("Cannot perform math operations on a null fraction object!"); // TODO for IllegalArgumentJupiter.java
+			throw new IllegalArgumentException("Cannot perform math operations on a null fraction object!");
 		}
+		
 		int newNum = fraction.getNum() * this.getNum();
 		int newDen = fraction.getDen() * this.getDen();
+		
 		Fraction newFraction = new Fraction(newNum, newDen);
-		return newFraction; // TODO method stub for multiply
+		
+		return newFraction;
 	}
 	
 	public double realValue() {
 		return (double) this.numerator / (double) this.denominator;
+	}
+	
+	public Fraction simplify(Fraction fraction) {
+		int simplify = 1;
+		for(int x = 1; x < fraction.getDen(); x++) {
+			if(fraction.getNum() % x == 0 && fraction.getDen() % x == 0) simplify = x;
+		}
+		return new Fraction(fraction.getNum()/simplify, fraction.getDen()/simplify);
 	}
 	
 	@Override
