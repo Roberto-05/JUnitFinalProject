@@ -53,8 +53,10 @@ public class Fraction {
 		if(fraction == null) {
 			throw new IllegalArgumentException("Cannot perform math operations on a null fraction object!"); // TODO for IllegalArgumentJupiter.java
 		}
-		
-		return null; // TODO method stub for multiply
+		int newNum = fraction.getNum() * this.getNum();
+		int newDen = fraction.getDen() * this.getDen();
+		Fraction newFraction = new Fraction(newNum, newDen);
+		return newFraction; // TODO method stub for multiply
 	}
 	
 	public double realValue() {
