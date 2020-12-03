@@ -30,6 +30,18 @@ public class Fraction {
 	}
 	
 	public boolean equals(Fraction fraction) {
+   if(fraction.getNum() == this.getNum()){
+         if(fraction.getDen() == this.getDen()){
+            return true;
+         }
+         else{
+            return false;
+         }
+      }
+      else{
+         return false;
+      }
+
 		return false; // TODO method stub for equals
 	}
 	
