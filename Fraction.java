@@ -88,11 +88,19 @@ public class Fraction {
 	public Fraction simplify(Fraction fraction) {
 		int simplify = 1;
 		int limit;
-		if(fraction.getDen() > 0) limit = fraction.getDen();
-		else limit = -1 * fraction.getDen();
-		for(int x = 1; x <= limit; x++) {
-			if(fraction.getNum() % x == 0 && fraction.getDen() % x == 0) simplify = x;
+		
+		if(fraction.getDen() > 0) {
+			limit = fraction.getDen();
+		} else {
+			limit = -1 * fraction.getDen();
 		}
+		
+		for(int i = 1; i <= limit; i++) {
+			if(fraction.getNum() % i == 0 && fraction.getDen() % i == 0) {
+				simplify = i;
+			}
+		}
+		
 		return new Fraction(fraction.getNum()/simplify, fraction.getDen()/simplify);
 	}
 	
