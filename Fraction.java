@@ -14,8 +14,15 @@ public class Fraction {
 			denominator = denominator * -1;
 		}
 		
-		this.numerator = numerator;
-		this.denominator = denominator;		
+		int simplify = 1;
+		for(int i = 0; i < denominator; i++) {
+			if(numerator % i == 0 && denominator % i == 0) {
+				simplify = i;
+			}
+		}
+		
+		this.numerator = numerator / simplify;
+		this.denominator = denominator / simplify;		
 	}
 	
 	public Fraction add(Fraction fraction) {
