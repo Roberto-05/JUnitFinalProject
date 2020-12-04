@@ -15,7 +15,7 @@ public class Fraction {
 		}
 		
 		int simplify = 1;
-		for(int i = 0; i < denominator; i++) {
+		for(int i = 1; i <= denominator; i++) {
 			if(numerator % i == 0 && denominator % i == 0) {
 				simplify = i;
 			}
@@ -90,7 +90,7 @@ public class Fraction {
 		int limit;
 		if(fraction.getDen() > 0) limit = fraction.getDen();
 		else limit = -1 * fraction.getDen();
-		for(int x = 1; x < limit; x++) {
+		for(int x = 1; x <= limit; x++) {
 			if(fraction.getNum() % x == 0 && fraction.getDen() % x == 0) simplify = x;
 		}
 		return new Fraction(fraction.getNum()/simplify, fraction.getDen()/simplify);
