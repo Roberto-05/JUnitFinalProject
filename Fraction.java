@@ -48,8 +48,13 @@ public class Fraction {
 	}
 	
 	public int compareTo(Fraction fraction) {
-      int res = this.compareTo(fraction);
-		return res;
+		int numeratorCheck = this.getNum() - fraction.getNum();
+		
+		if(numeratorCheck != 0) {
+			return numeratorCheck;
+		}
+		
+		return this.getDen() - fraction.getDen();
 	}
 	
 	public Fraction multiply(Fraction fraction) {
