@@ -1,3 +1,14 @@
+// Keng Xiong
+// Jacob Newcomb
+// Jessica Ho
+// Roberto Suarez
+
+/*
+ * IllegalArgument JUnit Jupiter Java source file:
+ * 
+ * This source file contains test methods which tests IllegalArgumentExceptions in the Fraction class Java source file.
+ */
+
 package fraction;
 
 import static org.junit.jupiter.api.Assertions.*;

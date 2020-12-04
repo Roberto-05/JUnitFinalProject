@@ -1,3 +1,14 @@
+// Keng Xiong
+// Jacob Newcomb
+// Jessica Ho
+// Roberto Suarez
+
+/*
+ * Fraction class Java source file:
+ * 
+ * This source file contains the constructor and methods for Fraction objects.
+ */
+
 package fraction;
 
 public class Fraction { // Class for Fractions
