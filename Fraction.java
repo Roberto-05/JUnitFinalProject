@@ -9,13 +9,13 @@ public class Fraction {
 			throw new IllegalArgumentException("The denominator with the value of 0 is not permitted");
 		}
 		
-		this.numerator = numerator;
-		this.denominator = denominator;
-		
-		if(this.denominator < 0) {
-			this.numerator = this.numerator * -1;
-			this.denominator = this.denominator * -1;
+		if(denominator < 0) {
+			numerator = numerator * -1;
+			denominator = denominator * -1;
 		}
+		
+		this.numerator = numerator;
+		this.denominator = denominator;		
 	}
 	
 	public Fraction add(Fraction fraction) {
@@ -37,24 +37,18 @@ public class Fraction {
 	}
 	
 	public boolean equals(Fraction fraction) {
-		Fraction thisCopy = simplify(this);
-		fraction = simplify(fraction);
+		double cur_fractionValue = fractionRealValue(this);
+		double new_fractionValue = fractionRealValue(fraction);
 		
-		if (fraction.getNum() == this.getNum()) {
-			if (fraction.getDen() == this.getDen()) {
-				return true;
-			} else {
-				return false;
-			}
+		if(cur_fractionValue == new_fractionValue) {
+			return true;
 		} else {
 			return false;
 		}
-
-		return false;
 	}
 	
 	public int compareTo(Fraction fraction) {
-      int res = this.fraction.compareTo(fraction);
+      int res = this.compareTo(fraction);
 		return res;
 	}
 	
@@ -75,6 +69,10 @@ public class Fraction {
 		return (double) this.numerator / (double) this.denominator;
 	}
 	
+	public double fractionRealValue(Fraction fraction) {
+		return (double) fraction.getNum() / (double) fraction.getDen();
+	}
+	
 	public Fraction simplify(Fraction fraction) {
 		int simplify = 1;
 		int limit;
@@ -88,30 +86,9 @@ public class Fraction {
 	
 	@Override
 	public String toString() {
-		StringBuilder sbDen, sbNum;
-		String str = "";
-		String tempNum = String.valueOf(this.numerator);
-		String tempDen = String.valueOf(this.denominator);
-		if(this.denominator < 0) {
-			sbDen = new StringBuilder(tempDen);
-			sbDen.deleteCharAt(0);
-			tempDen = sbDen.toString();
+		Fraction simplifiedFraction = simplify(this);
+		String str = simplifiedFraction.getNum() + "/" + simplifiedFraction.getDen();
 			
-			str = "-" + tempNum + "/" + tempDen;
-		} else if (this.numerator < 0 && this.denominator < 0){
-			 sbNum = new StringBuilder(tempNum);
-			 sbNum.deleteCharAt(0);
-			 tempNum = sbNum.toString();
-			 
-			 sbDen = new StringBuilder(tempDen);
-			 sbDen.deleteCharAt(0);
-			 tempDen = sbDen.toString();
-			 
-			 str = tempNum + "/" + tempDen;
-		} else {
-			str = tempNum + "/" + tempDen; 
-		}
-		
 		return str;
 	}
 	
